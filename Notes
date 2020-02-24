@@ -242,7 +242,39 @@ if c==0:
 if c==1:
     print("No Students")
     print("No Students")
+----------------------
+def get_result(a, b, operation):
+    # update operation_dict
+    operation_dict = {"ADD":add,"SUBTRACT":subtract,"MULTIPLY":multiply,"DIVIDE":divide}
 
+    func = operation_dict[operation]
+
+    result = func(a, b)
+
+    print(round(result,2))
+
+
+def add(a, b):
+    return a+b
+
+
+def subtract(a, b):
+    return a-b
+
+
+def multiply(a, b):
+    return a*b
+
+
+def divide(a, b):
+    return a/b
+
+
+a, b = input().split(",")
+a = float(a)
+b = float(b)
+operation=input()
+get_result(a, b, operation)
 
 
 
