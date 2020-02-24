@@ -106,7 +106,21 @@ for i in range(len(x)):
         n2=a.pop()
         a.append(int(n2)/int(n1))
 print(int(a[0]))
-
+------------------------------------------
+def compute_fib(n,l):
+    return l[n-1]%100
+ 
+    
+n = int(input())
+l=[]
+for i in range(1000):
+    if i<=1:
+        l.append(1)
+    else:
+        l.append(l[i-1]+l[i-2])
+       
+for i in range(n):
+    print(compute_fib(int(input()),l))
 
 
 
