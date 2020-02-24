@@ -177,8 +177,70 @@ for t_ in range(t):
     t1 = int(input())
     primes(t1)
 
+----------------------------------------------------
+Input:
+Ram,Naresh,Haran,Raghu
+12,13,14,15
+Ram,Naresh,Haran
+23,24,25
+Naresh,Haran,Raghu
+34,35,36
+14,5,6
 
+Output:
+Haran,Naresh,Raghu,Ram
+Haran
+m_names = input().split(",")
+m_scores = input().split(",")
+p_names = input().split(",")
+p_scores = input().split(",")
+c_names = input().split(",")
+c_scores = input().split(",")
+t_scores =input().split(",")
 
+t_scores1=[int(i) for i in t_scores]
+c=1
+l_m=[];l_p=[];l_c=[];
+for i in range(len(m_scores)):
+    if int(m_scores[i])>=t_scores1[0]:
+        c=0
+        l_m.append(m_names[i])
+for i in range(len(p_scores)):
+    if int(p_scores[i])>=t_scores1[1]:
+        l_p.append(p_names[i])
+        c=0
+for i in range(len(c_scores)):
+    if int(c_scores[i])>=t_scores1[2]:
+        c=0
+        l_c.append(c_names[i])
+
+k=set(l_m) |set(l_p)  |set(l_c)
+k=list(k)
+k=sorted(k)
+k1=set(l_m) & set(l_p)  & set(l_c)
+k1=list(k1)
+k1=sorted(k1)
+m=0
+if c==0:
+    for i in range(len(k)):
+        if i!=len(k)-1:
+            print(k[i],end=",")
+        else:
+            print(k[i],end="")
+    print()
+    for i in range(len(k1)):
+        if i!=len(k1)-1:
+            m=1
+            print(k1[i],end=",")
+        else:
+            m=1
+            print(k1[i],end="")
+        print()
+    if m==0:
+        print("No Students")
+if c==1:
+    print("No Students")
+    print("No Students")
 
 
 
