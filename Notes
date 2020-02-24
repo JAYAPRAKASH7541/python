@@ -125,30 +125,3 @@ print(int(a[0]))
 
 
 
-'''k=x[-1]
-#print(k)
-l=[]
-for i in range(len(x)):
-    print(x[i-1],x[i-2])
-    if x[i]=="+":
-        s=int(x[i-1])+int(x[i-2])
-        l.append(s)
-    elif x[i]=="-":
-        s=int(x[i-1])-int(x[i-2])
-        l.append(s)
-    elif x[i]=="*":
-        s=int(x[i-1])*int(x[i-2])
-        l.append(s)
-    elif x[i]=="/":
-        s=int(x[i-1])//int(x[i-2])
-        l.append(s)
-
-print(l)
-if k=="+":
-    print(int(l[0]+l[1]))
-elif k=="-":
-    print(int(l[0]-l[1]))
-elif k=="*":
-    print(int(l[0]*l[1]))
-elif k=="/":
-    print(int(l[0]/l[1]))'''
