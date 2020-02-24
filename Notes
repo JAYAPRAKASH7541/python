@@ -10,17 +10,18 @@ Kiran,10.0
 
 
 ---------------------------------------------------
-
 names=input().split(",")
 scores=input().split(",")
 x=input().split(",")
 scores_1=[float(i) for i in scores]
 d={names[i]:scores_1[i] for i in range(len(names))}
-for i in d:
-    for j in range(len(x)):
-        if i==x[j]:
-            d[i]=d[i]+5
-d1=sorted(d.items(),key=lambda v:v[1],reverse=True)
+for i in x:
+    if i in d:
+        d[i]=d[i]+5
+    else:
+        d.update({i:5.0})
+d=sorted(d.items(),reverse=True)
+d1=sorted(d,key=lambda v:v[1],reverse=True)
 for k,v in d1:
     print(k,v,sep=",")
 
