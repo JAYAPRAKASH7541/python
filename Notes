@@ -121,6 +121,18 @@ for i in range(1000):
        
 for i in range(n):
     print(compute_fib(int(input()),l))
+------------------------------------------
+table
+
+x=int(input())
+print("+"+"-"*25+"+"+"-"*4+"+"+"-"*4+"+"+"-"*4+"+")
+print("| {:<24}".format("Student")+"|"+"{:>4}".format("M ")+"|"+"{:>4}".format("P ")+"|"+"{:>4}".format("C ")+"|")
+print("+"+"-"*25+"+"+"-"*4+"+"+"-"*4+"+"+"-"*4+"+")
+
+for i in range(x):
+    a,b,c,d=input().split(",")
+    print("| {:<24}".format(a)+"|"+"{:>3}".format(b)+" |"+"{:>3}".format(c)+" |"+"{:>3}".format(d)+" |")
+print("+"+"-"*25+"+"+"-"*4+"+"+"-"*4+"+"+"-"*4+"+")
 
 
 
@@ -138,31 +150,3 @@ for i in range(n):
 
 
 
-
-'''k=x[-1]
-#print(k)
-l=[]
-for i in range(len(x)):
-    print(x[i-1],x[i-2])
-    if x[i]=="+":
-        s=int(x[i-1])+int(x[i-2])
-        l.append(s)
-    elif x[i]=="-":
-        s=int(x[i-1])-int(x[i-2])
-        l.append(s)
-    elif x[i]=="*":
-        s=int(x[i-1])*int(x[i-2])
-        l.append(s)
-    elif x[i]=="/":
-        s=int(x[i-1])//int(x[i-2])
-        l.append(s)
-
-print(l)
-if k=="+":
-    print(int(l[0]+l[1]))
-elif k=="-":
-    print(int(l[0]-l[1]))
-elif k=="*":
-    print(int(l[0]*l[1]))
-elif k=="/":
-    print(int(l[0]/l[1]))'''
