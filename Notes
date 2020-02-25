@@ -275,7 +275,140 @@ a = float(a)
 b = float(b)
 operation=input()
 get_result(a, b, operation)
+------------------------------------------------------------------------------
 
+def PRINTING(A,B):
+    #print(A,B)
+    for x,i in enumerate(B[:-1]):
+        if i==0:
+            continue
+        if i >=0 :
+            if A[x] == 1:
+                print(" + {}x".format(i),end="")
+                continue
+            if x==0:
+                print(" {}x^{}".format(i,A[x]),end="")
+            else:    
+                print(" + {}x^{}".format(i,A[x]),end="")
+            
+        elif i<0:
+            if A[x] == 1:
+                print(" - {}x".format(abs(i)),end="")
+                continue
+            if x==0: 
+              print(" -{}x^{}".format(abs(i),A[x]),end="")
+            else:
+                print(" - {}x^{}".format(abs(i),A[x]),end="")
+    if len(A) == 1:
+        if B[-1] >=0 :
+           print(" {}".format(B[-1]))
+        else:
+            print(" -{}".format(B[-1]))
+        return
+    if B[-1]>0:   
+      print(" + {}".format(abs(B[-1]))) 
+    else:
+        print(" - {}".format(abs(B[-1]))) 
+
+---------------------------------------------------------------
+printing ab polynomials
+
+
+Srinivas Kotipalli <srinivasktpl1222@gmail.com>
+Mon, Feb 24, 9:43 PM (10 hours ago)
+to me
+
+def PRINTING(A,B):
+    #print(A,B)
+    for x,i in enumerate(B[:-1]):
+        if i==0:
+            continue
+        if i >=0 :
+            if A[x] == 1:
+                print(" + {}x".format(i),end="")
+                continue
+            if x==0:
+                print(" {}x^{}".format(i,A[x]),end="")
+            else:    
+                print(" + {}x^{}".format(i,A[x]),end="")
+            
+        elif i<0:
+            if A[x] == 1:
+                print(" - {}x".format(abs(i)),end="")
+                continue
+            if x==0: 
+              print(" -{}x^{}".format(abs(i),A[x]),end="")
+            else:
+                print(" - {}x^{}".format(abs(i),A[x]),end="")
+    if len(A) == 1:
+        if B[-1] >=0 :
+           print(" {}".format(B[-1]))
+        else:
+            print(" -{}".format(B[-1]))
+        return
+    if B[-1]>0:   
+      print(" + {}".format(abs(B[-1]))) 
+    else:
+        print(" - {}".format(abs(B[-1]))) 
+
+
+-------------------------------------------------------------
+multiply
+
+Srinivas Kotipalli <srinivasktpl1222@gmail.com>
+Mon, Feb 24, 9:42 PM (10 hours ago)
+to me
+
+"""----------MULTIPLICATION----------"""
+
+from collections import defaultdict
+def fun():
+
+    coef_A=[]
+    po_A=[]
+    for i in range(int(input())):
+        a,b=list(map(int,input().split()))
+        coef_A.append(a)
+        po_A.append(b)
+    A=list(reversed(list(zip(coef_A,po_A))))
+    return A
+ 
+A=fun()
+B=fun()
+#print(A,B)
+mul=[]
+coef=[]
+#print(A,B)
+for i in A:
+    for j in B:
+        mul.append(i[1]*j[1])
+        coef.append(i[0]+j[0])
+#print(mul,coef)
+
+d=defaultdict(int)
+for i in range(len(coef)):
+    d[coef[i]]+=mul[i]
+
+l=sorted(d,reverse=True)
+d={i:d[i] for i in l}
+
+z=0
+"""---------PRINTING--------"""
+for k,v in d.items():
+    z+=1
+    if k==0:
+     if v>0:    
+        print(" + {0}".format(v),end="")
+     else:
+        print(" - {0}".format(abs(v)),end="")
+        
+    elif v<0:
+     print(" - {0}x^{1}".format(abs(v),k),end="")
+    elif v>0:
+     if z!=1:    
+      print(" + {0}x^{1}".format(v,k),end="")
+     else:
+         print("{0}x^{1}".format(v,k),end="")
 
 
 
