@@ -410,7 +410,29 @@ for k,v in d.items():
      else:
          print("{0}x^{1}".format(v,k),end="")
 
+===---------------------------------------------
+x = int(input())
+d={}
+k=[]
+v=[]
 
+for i in range(x):
+    n=input().split(",")
+    names=n[0]
+    dgs = n[1:]
+    dgs=[int(i) for i in dgs]
+    d.update({names[0:]:dgs[0:] for i in range(len(dgs))})
+d1=sorted(d.items())
+d2=sorted(d1,key=lambda v:v[1],reverse=True)
+print("+"+"-"*25+"+"+"-"*4+"+"+"-"*4+"+"+"-"*4+"+")
+print("| {:<24}".format("Merchant")+"|"+"{:>4}".format("D ")+"|"+"{:>4}".format("G ")+"|"+"{:>4}".format("S ")+"|")
+print("+"+"-"*25+"+"+"-"*4+"+"+"-"*4+"+"+"-"*4+"+")
+for key,value in d2:
+    k.append(key)
+    v.append(value)
+for i in range(x):
+    print("| {:<24}|".format(k[i])+"{:>3} |".format(v[i][0])+"{:>3} |".format(v[i][1])+"{:>3} |".format(v[i][2]))
+print("+"+"-"*25+"+"+"-"*4+"+"+"-"*4+"+"+"-"*4+"+")
 
 
 
