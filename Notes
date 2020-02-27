@@ -479,7 +479,62 @@ else:
         b=b.replace('1x','x')
         b=b.replace(' + -',' - ')
     print(b)    
-        
+      =============------------==============
+      dic1 = {}
+dic2 = {}
+dic3 = {}
+dic4 = {}
+c=0
+n=int(input())
+for i in range(n):
+    s = input().split()
+    dic1.update({int(s[0]):int(s[1])})
+m=int(input())
+for i in range(m):
+    s = input().split()
+    dic2.update({int(s[0]):int(s[1])})
+if n>m:
+    for key in dic1:
+        if key in dic2:
+            #print(key,dic1[key],dic2[key])
+            dic2[key]=dic1[key]-dic2[key]
+        else:
+            #print(key,dic1[key])
+            dic2.update({key:dic1[key]})
+    #print(dic2)
+else:
+    for key in dic2:
+        if key in dic1:
+            #print(key,dic1[key],dic2[key])
+            dic2[key]=dic1[key]-dic2[key]
+        else:
+            #print(key,dic1[key])
+            dic2.update({key:0-dic2[key]})
+    #pri
+    
+for i in dic2:
+    if dic2[i]!=0:
+        dic4.update({i:dic2[i]})
+dic4=sorted(dic4.items(),key=lambda x:x[0],reverse=True)
+#
+#print(dic4)
+if len(dic4)==0:
+    print("0")
+else:
+    a=[]
+    b=[]
+    for k,v in dic4:
+        a.append("{}x^{}".format(v,k))
+        b=(" + ").join(a)
+        #print(a)
+        #print(b)
+        b=b.replace('x^0','')
+        b=b.replace('x^1','x')
+        b=b.replace(' 1x ',' x ')
+        b=b.replace(' 1x^',' x^')
+        #b=b.replace('-1x^','-x^')
+        b=b.replace(' + -',' - ')
+    print(b)
 
 
 
