@@ -536,6 +536,47 @@ else:
         b=b.replace(' + -',' - ')
     print(b)
 
+-----------------------
+ipl
+n=int(input())
+d={}
+d1={}
+for i in range(n):
+    s=input().split(";")
+    if s[0] not in d:
+        d.update({s[0]:[0,0,0,0,0]})
+    if s[1] not in d:
+        d.update({s[1]:[0,0,0,0,0]})
+    print(d)
+    k=d[s[0]]
+    l=d[s[1]]
+    if s[2]=="win":
+        k[0]+=1
+        k[1]+=1
+        k[4]+=3
+        l[0]+=1
+        l[3]+=1
+    elif s[2]=="draw":
+        k[0]+=1
+        k[2]+=1
+        k[4]+=1
+        l[0]+=1
+        l[2]+=1
+        l[4]+=1
+    elif s[2]=="loss":
+        k[0]+=1
+        k[3]+=1
+        k[3]+=0
+        l[0]+=1
+        l[1]+=1
+        l[4]+=3
+d=sorted(d.items())
+d1=sorted(d,key=lambda v:v[1][4] ,reverse=True)
+d1=dict(d1)
+print("{:<24}| {:>2} | {:>2} | {:>2} | {:>2} | {:>2} |".format('Team','MP','W','D','L','P'))
+
+for j in d1:
+    print("{:<24}| {:>2} | {:>2} | {:>2} | {:>2} | {:>2} |".format(j,d1[j][0],d1[j][1],d1[j][2],d1[j][3],d1[j][4]))
 
 
 
