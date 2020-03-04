@@ -1,0 +1,107 @@
+
+Warning: PATH set to RVM ruby but GEM_HOME and/or GEM_PATH not set, see:
+    https://github.com/rvm/rvm/issues/3212
+
+matam-jayaprakash:~/environment $ python3
+Python 3.6.8 (default, Aug  2 2019, 17:42:44) 
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-28)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from datetime import  datetime ,timedelta
+>>> d=datetime.strptime('01/01/20 12:30:30',"%d%m%y %H:%M:%S")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib64/python3.6/_strptime.py", line 565, in _strptime_datetime
+    tt, fraction = _strptime(data_string, format)
+  File "/usr/lib64/python3.6/_strptime.py", line 362, in _strptime
+    (data_string, format))
+ValueError: time data '01/01/20 12:30:30' does not match format '%d%m%y %H:%M:%S'
+>>> d=datetime.strptime('01/01/20 12:30:30',"%d/%m/%y %H:%M:%S")                                         
+>>> print(d)
+2020-01-01 12:30:30
+>>> d2=d+timedelta(days=1)
+>>> print(d2)
+2020-01-02 12:30:30
+>>> d2=d+timedelta(2)                                                                                    
+>>> print(d2)                                                                                            
+2020-01-03 12:30:30
+>>> d2=d+timedelta(11)                                                                                   
+>>> print(d2)                                                                                            
+2020-01-12 12:30:30
+>>> d2=d+timedelta(41)                                                                                   
+>>> print(d2)                                                                                            
+2020-02-11 12:30:30
+>>> d2=d+timedelta(days=12,hrs=10)                                                                       
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'hrs' is an invalid keyword argument for this function
+>>> d2=d+timedelta(days=12,hours=10)
+>>> print(d2)
+2020-01-13 22:30:30
+>>> d2=d+timedelta(days=12,seconds=10)                                                                   
+>>> print(d2)
+2020-01-13 12:30:40
+>>> d2=d+timedelta(days=12,seconds=10,hours=12,year=1,months=2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'year' is an invalid keyword argument for this function
+>>> d2=d+timedelta(days=12,seconds=10,hours=12,years=1,months=2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'years' is an invalid keyword argument for this function
+>>> d2=d+timedelta(days=12,seconds=10,hours=12,months=2)                                                 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'months' is an invalid keyword argument for this function
+>>> d2=d+timedelta(days=12,seconds=10,hours=12)                                                          
+>>> print(d2)
+2020-01-14 00:30:40
+>>> import uuid
+>>> uuid.uuid1()
+UUID('94a72f72-5e0a-11ea-ab4e-023ded3a4f14')
+>>> uuid.uuid4()
+UUID('af588474-0f89-4b91-8e5a-f338736afc2d')
+>>> uuid.uuid3()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: uuid3() missing 2 required positional arguments: 'namespace' and 'name'
+>>> uuid.uuid4()
+UUID('a0c7b29c-66f5-4634-94b7-983b6eca6d00')
+>>> uuid.uuid4()
+UUID('7d1e9fb5-3f66-4ade-870d-4fc407883636')
+>>> import json
+>>> d ={"a":1}
+>>> dj=json.dumps(d)
+>>> dj
+'{"a": 1}'
+>>> d2=json.loads(dj)
+>>> d2
+{'a': 1}
+>>> from collections import defaultdict
+>>> my_default=defaultdict(int)
+>>> for l in 'python is easy':
+...     my_default[l]+=1
+... print(my_default)
+  File "<stdin>", line 3
+    print(my_default)
+        ^
+SyntaxError: invalid syntax
+>>> my_default=defaultdict(int)
+>>> for l in 'python is easy':
+... 
+  File "<stdin>", line 2
+    
+    ^
+IndentationError: expected an indented block
+>>>     my_default[l]+=1
+  File "<stdin>", line 1
+    my_default[l]+=1
+    ^
+IndentationError: unexpected indent
+>>> from collections import defaultdict
+>>> for l in 'python is easy':
+...     my_default[l]+=1
+... 
+>>> print(my_default)
+defaultdict(<class 'int'>, {'p': 1, 'y': 2, 't': 1, 'h': 1, 'o': 1, 'n': 1, ' ': 2, 'i': 1, 's': 2, 'e': 1, 'a': 1})
+>>> 
+----------------------
