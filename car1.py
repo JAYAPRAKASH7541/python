@@ -13,14 +13,15 @@ class Car:
 
 
 car1=Car("green",60)
-
 print(car1.speed)
 print(car1.color)
 car1.accelerate()
 print(car1.speed)
 car1.apply_brakes()
 print(car1.speed)
+                                                         
 #-------------
+
 car2=Car("black",40)
 print(car2.color)
 print(car2.speed)
@@ -32,4 +33,4 @@ print(car2.speed)
 
 		
 		
-	
+		
