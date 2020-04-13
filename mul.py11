@@ -75,3 +75,84 @@ if __name__ == "__main__":
     print(isinstance(fraction_two, Fraction))
     print(result_fraction.numerator)
     print(result_fraction.denominator)
+    -------------------
+    import math
+class Fraction:
+    # TODO: write your code here
+        # TODO: write your code here
+    def __init__(self,num1,den1):
+        self._numerator=num1
+        self._denominator=den1
+        if num1 < 0 and den1 < 0:
+            self._numerator=-(self._numerator)
+            self._denominator=-(self._denominator)
+        elif den1<0:
+            self._numerator=-(self._numerator)
+            self._denominator=-(self._denominator)
+        else:
+            self._numerator=(self._numerator)
+            self._denominator=(self._denominator)
+        a=self.numerator
+        b=self.denominator
+        x=math.gcd(a,b)
+        self._numerator=a//x
+        self._denominator=b//x
+        
+    def __str__(self):
+        return("{}/{}".format(self.numerator,self.denominator))
+    @property
+    def numerator(self):
+        return self._numerator
+    
+    
+    @property
+    def denominator(self):
+        return self._denominator
+        
+        
+    def __sub__(self,other):
+        x=(self._numerator*other._denominator)-(self._denominator*other._numerator)
+        y=(self._denominator*other._denominator)
+        z = Fraction(x,y)
+        print('{} - {} = {}'.format(fraction_one,fraction_two,z))
+        return z
+        
+    
+
+
+if __name__ == "__main__":
+    import json
+
+    input_args = list(json.loads(input()))
+
+    fraction_one = Fraction(*input_args[0])
+    fraction_two = Fraction(*input_args[1])
+
+    result_fraction = fraction_one - fraction_two
+
+    try:
+        fraction_one._numerator
+    except AttributeError:
+        print("Missed protecting numerator")
+
+    try:
+        fraction_one._denominator
+    except AttributeError:
+        print("Missed protecting denominator")
+
+    try:
+        fraction_one.numerator = 1
+        print("Missed setting safe access to numerator")
+    except AttributeError:
+        pass
+
+    try:
+        fraction_one.denominator = 1
+        print("Missed setting safe access to numerator")
+    except AttributeError:
+        pass
+
+    print(isinstance(fraction_one, Fraction))
+    print(isinstance(fraction_two, Fraction))
+    print(result_fraction.numerator)
+    print(result_fraction.denominator)
