@@ -13,3 +13,7 @@ where fname = 'Jon' and lname = 'Dough';'''
 
 Q6='''select name from movie  where name like 'young latin girls%' 
 and year between 2003 and 2006;'''
+
+Q10='''select gender,count(*) from actor group by gender order by gender asc;'''
+
+
